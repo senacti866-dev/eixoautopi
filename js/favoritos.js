@@ -5,42 +5,42 @@ const listaProdutos = [
     nome: 'Caminhão',
     descricao: 'lorem ipsum',
     preco: ' 40,00',
-    imagem: '/EixoAuto/img/Produtos/Cabeçote.webp'
+    imagem: '/eixoautopi/img/Produtos/Cabeçote.webp'
   },
   {
     id: 2,
     nome: 'Carro',
     descricao: 'lorem ipsum',
     preco: ' 40,00',
-    imagem: '/EixoAuto/img/Produtos/Cabeçote.webp'
+    imagem: '/eixoautopi/img/Produtos/Cabeçote.webp'
   },
   {
     id: 3,
     nome: 'Volante',
     descricao: 'lorem ipsum',
     preco: ' 40,00',
-    imagem: '/EixoAuto/img/Produtos/Cabeçote.webp'
+    imagem: '/eixoautopi/img/Produtos/Cabeçote.webp'
   },
   {
     id: 4,
     nome: 'Freio',
     descricao: 'lorem ipsum',
     preco: ' 40,00',
-    imagem: '/EixoAuto/img/Laranja.png'
+    imagem: '/eixoautopi/img/Laranja.png'
   },
   {
     id: 6,
     nome: 'Freio',
     descricao: 'lorem ipsum',
     preco: ' 40,00',
-    imagem: '/EixoAuto/img/Fornecedores/LF.png'
+    imagem: '/eixoautopi/img/Fornecedores/LF.png'
   },
   {
     id: 7,
     nome: 'Freio',
     descricao: 'lorem ipsum',
     preco: ' 40,00',
-    imagem: '/EixoAuto/img/Fornecedores/LF.png'
+    imagem: '/eixoautopi/img/Fornecedores/LF.png'
   }
 ];
 
@@ -51,21 +51,21 @@ const fluidContainer1 = [
     nome: 'guuhgerh',
     descricao: 'lorem ipsum',
     preco: ' 40,00',
-    imagem: '/EixoAuto/img/Produtos/Cabeçote.webp'
+    imagem: '/eixoautopi/img/Produtos/Cabeçote.webp'
   },
   {
     id: 20,
     nome: 'ioutjoihngj',
     descricao: 'lorem ipsum',
     preco: ' 40,00',
-    imagem: '/EixoAuto/img/Produtos/Cabeçote.webp'
+    imagem: '/eixoautopi/img/Produtos/Cabeçote.webp'
   },
   {
     id: 30,
     nome: 'guuhgerh',
     descricao: 'lorem ipsum',
     preco: ' 40,00',
-    imagem: '/EixoAuto/img/Produtos/Cabeçote.webp'
+    imagem: '/eixoautopi/img/Produtos/Cabeçote.webp'
   },
 
 ]
@@ -77,35 +77,35 @@ const fluidContainer2 = [
     nome: 'guuhgerh',
     descricao: 'lorem ipsum',
     preco: ' 40,00',
-    imagem: '/EixoAuto/img/Produtos/Cabeçote.webp'
+    imagem: '/eixoautopi/img/Produtos/Cabeçote.webp'
   },
   {
     id: 200,
     nome: 'ioutjoihngj',
     descricao: 'lorem ipsum',
     preco: ' 40,00',
-    imagem: '/EixoAuto/img/Produtos/Cabeçote.webp'
+    imagem: '/eixoautopi/img/Produtos/Cabeçote.webp'
   },
   {
     id: 300,
     nome: 'Caminhão',
     descricao: 'lorem ipsum',
     preco: ' 40,00',
-    imagem: '/EixoAuto/img/Produtos/Cabeçote.webp'
+    imagem: '/eixoautopi/img/Produtos/Cabeçote.webp'
   },
   {
     id: 400,
     nome: 'Caminhão',
     descricao: 'lorem ipsum',
     preco: ' 40,00',
-    imagem: '/EixoAuto/img/Produtos/Cabeçote.webp'
+    imagem: '/eixoautopi/img/Produtos/Cabeçote.webp'
   },
   {
     id: 500,
     nome: 'Caminhão',
     descricao: 'lorem ipsum',
     preco: ' 40,00',
-    imagem: '/EixoAuto/img/Produtos/Cabeçote.webp'
+    imagem: '/eixoautopi/img/Produtos/Cabeçote.webp'
   },
 ]
 
@@ -125,7 +125,7 @@ function renderizarProdutos(lista, containerClasse) {
       const div = document.createElement('div');
       div.classList.add('produto');
       div.innerHTML = `
-        <img class="fav_heart" src="/EixoAuto/img/Icons/heart.png" alt="Ícone de favoritos" onclick='favoritar(${JSON.stringify(produto)})'>
+        <img class="fav_heart" src="/eixoautopi/img/Icons/heart.png" alt="Ícone de favoritos" onclick='favoritar(${JSON.stringify(produto)})'>
         <img class="produtos" src="${produto.imagem}" alt="${produto.nome}">
         <a href="#">${produto.nome}</a>
         <h2>${produto.preco}</h2>
@@ -134,7 +134,7 @@ function renderizarProdutos(lista, containerClasse) {
       div.style.cursor = 'pointer';
       div.addEventListener('click', () => {
         apresentar(produto);
-        window.location.href = '/EixoAuto/pages/compra.html'; // Redireciona à página de compra
+        window.location.href = '/eixoautopi/pages/compra.html'; // Redireciona à página de compra
       });
 
       container.appendChild(div);
@@ -172,13 +172,13 @@ function ProdutosFavoritados() {
     div.classList.add('produto'); //Trazendo os dados para a interface 
     div.innerHTML =
       `
-      <img class="fav_heart" src="/EixoAuto/img/Icons/heart-checked.png" alt= "Ícone de favoritos" onclick="removerFavorito(${produto.id})">
+      <img class="fav_heart" src="/eixoautopi/img/Icons/heart-checked.png" alt= "Ícone de favoritos" onclick="removerFavorito(${produto.id})">
         <div class='produtos'> <img  src='${produto.imagem}' alt='${produto.nome}'></div>
           <h3>${produto.nome}</h3>
 
           <div class='content'>
             <h2>${produto.preco}</h2>
-            <img class="compras" src="/EixoAuto/img/Icons/carrinho-branco.png" alt="Ícone do carrinho" onclick='adicionarNoCarrinho(${JSON.stringify(produto)})'>
+            <img class="compras" src="/eixoautopi/img/Icons/carrinho-branco.png" alt="Ícone do carrinho" onclick='adicionarNoCarrinho(${JSON.stringify(produto)})'>
           </div>   
     `; //Criando os elementos html do produto na página de favoritos
     container.appendChild(div);

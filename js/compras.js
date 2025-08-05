@@ -3,7 +3,7 @@ function apresentar(produto) {
   
   localStorage.setItem('compra', JSON.stringify([produto]));
   console.log('Produto salvo com sucesso no localStorage');
-  window.location.href = '/EixoAuto/pages/compra.html';
+  window.location.href = '/eixoautopi/pages/compra.html';
 }
 
 // Página de Compras

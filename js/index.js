@@ -70,10 +70,10 @@ function selectContainer(containerClasse) {
 
         favIcons.forEach(icon => {
             icon.addEventListener("click", () => {
-                if (icon.src.includes("/EixoAuto/img/Icons/heart.png")) {
-                    icon.src = "/EixoAuto/img/Icons/heart-checked.png";
+                if (icon.src.includes("/eixoautopi/img/Icons/heart.png")) {
+                    icon.src = "/eixoautopi/img/Icons/heart-checked.png";
                 } else {
-                    icon.src = "/EixoAuto/img/Icons/heart.png";
+                    icon.src = "/eixoautopi/img/Icons/heart.png";
                 }
             });
         });
