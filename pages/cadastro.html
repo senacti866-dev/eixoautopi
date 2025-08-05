@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="/EixoAuto/css/cadastro.css">
+</head>
+
+<body>
+
+    <header>
+        <div id="logo">
+            <img src="/EixoAuto/img/Icons/Logo E branca real.png" alt="Logo da empresa Eixo">
+        </div>
+
+        <nav>
+            <a href="/EixoAuto/pages/index.html">⇠ Voltar</a>
+        </nav>
+    </header>
+
+
+    <div id="container">
+        <h1>Cadastro</h1>
+
+        <form action="/cadastro" method="get">
+            <label for="Cli_Nome">Nome da Empresa:</label>
+            <input type="text" id="Cli_Nome" name="Cli_Nome" required>
+
+            <div class="input-group">
+                <div class="input-item">
+                    <label for="Ins_CNPJ">CNPJ:</label>
+                    <input type="number" id="Ins_CNPJ" name="Ins_CNPJ">
+                </div>
+
+                <div class="input-item">
+                    <label for="Ins_InscricaoEstadual">Inscrição:</label>
+                    <input type="number" id="Ins_InscricaoEstadual" name="Ins_InscricaoEstadual" required>
+                </div>
+            </div>
+
+            <label for="Ema_Email1">Email:</label>
+            <input type="Ema_Email1" id="Ema_Email1" name="Ema_Email1" required>
+
+            <label for="Cli_Senha">Senha:</label>
+            <input type="password" id="Cli_Senha" name="Cli_Senha" required>
+
+            <label for="Cli_ConfirmaSenha">Confirmar Senha:</label>
+            <input type="password" id="Cli_ConfirmaSenha" name="Cli_ConfirmaSenha" required>
+
+            <label for="Tel_Telefone">Telefone:</label>
+            <input type="tel" id="Tel_Telefone" name="Tel_Telefone" required>
+
+            <div class="input-group">
+                <div class="input-item">
+                    <label for="End_CEP">CEP:</label>
+                    <input type="number" id="End_CEP" name="End_CEP">
+
+                </div>
+
+                <div class="input-item">
+                    <label for="End_Numero">Número:</label>
+                    <input type="number" id="End_Numero" name="End_Numero" required>
+                </div>
+            </div>
+
+            <label for="End_Rua">Rua:</label>
+            <input type="text" id="End_Rua" name="End_Rua" required>
+
+            <label for="End_Bairro">Bairro:</label>
+            <input type="text" id="End_Bairro" name="End_Bairro" required>
+
+
+            <div class="input-group">
+                <div class="input-item">
+                    <label for="End_Cidade">Cidade:</label>
+                    <input type="text" id="End_Cidade" name="End_Cidade" required>
+
+                </div>
+
+                <div class="input-item">
+                    <label for="End_Estado">Estado:</label>
+                    <input type="text" id="End_Estado" name="End_Estado" required>
+                </div>
+            </div>
+
+            <button onclick="cadastro()" type="submit">
+                <h4 id="cadastro">Cadastrar</h4>
+            </button>
+        </form>
+    </div>
+    <script src="/EixoAuto/js/cadastro.js"></script>
+</body>
+
+</html>

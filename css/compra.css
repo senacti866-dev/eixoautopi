@@ -1,0 +1,360 @@
+body {
+  margin: 0;
+  background-color: #F3F4F7;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  height: 145px;
+  width: 100%;
+  margin: 0%;
+  padding: 0%;
+  background-color: #111317;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+#logo{
+  display: flex;
+  align-self: center; 
+}
+
+#logo img {
+  height: 70px;
+  width: 160px;
+  display: flex;
+  justify-self: center;
+  align-self: center;
+}
+
+#produto-compra {
+  width: 70%;
+  display: flex;
+  justify-self: center;
+}
+
+.product-container {
+  margin-top: 70px;
+  width: 100%;
+  display: flex;
+  gap: 10px;
+}
+
+.img-box {
+  width: 650px;
+  height: 350px;
+  padding: 15px;
+  background-color: #D6E0EA;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  gap: 10px;
+}
+
+.img-box img {
+  width: 100%;
+  height: 90%;
+  object-fit: contain;
+}
+
+h2 {
+  text-align: center;
+}
+
+.btn {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-self: center;
+  color: white;
+  border: none;
+  padding: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.product-prize {
+  width: 100%;
+  background-color: #D6E0EA;
+}
+
+.info-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rank {
+  width: 80px;
+  height: 50px;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #D6E0EA;
+}
+
+.top-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 80px;
+  height: 80px;
+  background-color: #D6E0EA;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.name {
+  flex: 1;
+  height: 80%;
+  background-color: #D6E0EA;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.desc-container {
+  max-height: 80px;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+.desc-container.open {
+  max-height: 500px;
+}
+
+.desc {
+  width: 100%;
+  height: 260px;
+  overflow-y: scroll;
+  background-color: #D6E0EA;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 20px;
+}
+
+.read-more-btn {
+  color: blue;
+  cursor: pointer;
+  font-weight: bold;
+  border: none;
+  background: none;
+}
+
+.comparison {
+  margin-top: 40px;
+  width: 70%;
+  min-height: 100vh;
+  background-color: #D6E0EA;
+  border-radius: 10px;
+  display: flex;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.content {
+  height: 100%;
+  flex-direction: column;
+  align-self: center;
+  justify-self: flex-start;
+}
+
+.product-section {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: aqua;
+}
+
+.img-product {
+  position: relative;
+  left: 0px;
+  width: 250px;
+  height: 160px;
+  display: flex;
+  align-self: center;
+  justify-self: flex-start;
+}
+
+.prize {
+  width: 70%;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.product-section a {
+  display: flex;
+  align-items: center;
+  text-size-adjust: 1.5em;
+  gap: 10px;
+  color: #000;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.product-section h1 {
+  width: 70%;
+  display: flex;
+  justify-self: start;
+  cursor: pointer;
+  white-space: wrap;
+}
+
+.store-link {
+  width: 20%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 10px;
+}
+
+.store-link button {
+  width: 200px;
+  height: 50px;
+  font-size: medium;
+  cursor: pointer;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #1F5070;
+}
+
+.store-link button:hover {
+  background-color: #222;
+}
+
+.suppliers {
+  width: 70px;
+  height: 70px;
+}
+
+
+/* Resetando algumas margens e padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilo do footer */
+footer {
+  background-color: #111317;
+  color: #fff;
+  padding: 40px 0 0 0;
+  width: 100%;
+}
+
+.footer-info img {
+  max-width: 100%;
+  width: 130px;
+  height: auto;
+}
+
+
+/* Container do footer */
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Estilo das seções dentro do footer */
+.footer-info,
+.footer-links,
+.footer-social {
+  width: 30%;
+}
+
+.footer-info image {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.footer-info p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.footer-links h3,
+.footer-social h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.footer-links ul,
+.footer-social ul {
+  list-style: none;
+}
+
+.footer-links li,
+.footer-social li {
+  margin-bottom: 8px;
+}
+
+.footer-links a,
+.footer-social a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer-links a:hover,
+.footer-social a:hover {
+  text-decoration: underline;
+}
+
+/* Estilo para o rodapé inferior */
+.footer-bottom {
+  text-align: center;
+  background-color: #222;
+  padding: 15px 0;
+  margin-bottom: 0;
+}
+
+.footer-bottom p {
+  font-size: 14px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-info,
+  .footer-links,
+  .footer-social {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}

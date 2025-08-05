@@ -1,0 +1,56 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    min-height: 100vh;
+    background-color: black;
+    background-image: url(../img/Propagandas/MercedesActrossEyes.png);
+    background-size: contain;
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+
+.background {
+    width: 60%;
+    height: 100px;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-self: end;
+    justify-content: center;
+    align-self: flex-end;
+    align-items: flex-end;
+    gap: 30px;
+}
+
+button {
+    width: 100%;
+    height: 80px;
+    border-radius: 10px;
+    font-size: 25px;
+    border: none;
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+    background-color: #D6E0EA;
+}
+
+a {
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
