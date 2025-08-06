@@ -30,9 +30,9 @@ function CarrinhodeProdutos() {
       <img class="products" src="${produto.imagem}" alt="${produto.nome}">
       <h2>${produto.nome}</h2>
       <div class="quantity">
-        <button class="btn" id="less"><img src="/EixoAuto/img/Icons/subtracao-Icon.png" alt=""></button>
+        <button class="btn" id="less"><img src="eixoauto/eixoautopi/img/Icons/subtracao-Icon.png" alt=""></button>
         <div class="qtd">1</div>
-        <button class="btn" id="more"><img src="/EixoAuto/img/Icons/adicao-Icon.png" alt=""></button>
+        <button class="btn" id="more"><img src="eixoauto/eixoautopi/img/Icons/adicao-Icon.png" alt=""></button>
       </div>
       <div class="prize">
         <h1>${produto.preco}</h1>
