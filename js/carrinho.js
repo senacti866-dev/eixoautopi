@@ -30,9 +30,9 @@ function CarrinhodeProdutos() {
       <img class="products" src="${produto.imagem}" alt="${produto.nome}">
       <h2>${produto.nome}</h2>
       <div class="quantity">
-        <button class="btn" id="less"><img src="eixoauto/eixoautopi/img/Icons/subtracao-Icon.png" alt=""></button>
+        <button class="btn less"><img src="/eixoauto/eixoautopi/img/Icons/subtracao-Icon.png" alt=""></button>
         <div class="qtd">1</div>
-        <button class="btn" id="more"><img src="eixoauto/eixoautopi/img/Icons/adicao-Icon.png" alt=""></button>
+        <button class="btn more"><img src="/eixoauto/eixoautopi/img/Icons/adicao-Icon.png" alt=""></button>
       </div>
       <div class="prize">
         <h1>${produto.preco}</h1>
@@ -86,32 +86,47 @@ function SelectProducts() {
 SelectProducts()
 
 
-//Quantidade de Produto + Valor Total
 
+//Quantidade de Produto + Valor Total
 function QtdPreco() {
   const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-  const qtd = document.querySelector('qtd')
-  const precoTotal = document.querySelector('prize')
-  var selectedQtd = 1
-  var valorTotal = 0
+  const container = document.getElementById('carrinho');
+  let valorTotal = 0;
 
-  document.addEventListener('click', (event) => {
-    if (event.target.id ===('less')){
-      selectedQtd -= 1
+  // Delegação de eventos para os botões + e -
+  container.addEventListener('click', function(event) {
+    const btnLess = event.target.closest('.less');
+    const btnMore = event.target.closest('.more');
+    if (btnLess || btnMore) {
+      const itemDiv = event.target.closest('.item-carrinho');
+      const qtdDiv = itemDiv.querySelector('.qtd');
+      let qtd = parseInt(qtdDiv.textContent);
+      if (btnLess && qtd > 1) {
+        qtd--;
+      }
+      if (btnMore) {
+        qtd++;
+      }
+      qtdDiv.textContent = qtd;
+      atualizarTotal();
     }
   });
-  document.addEventListener('click', (event) => {
-    if (event.target.id ===('more')){
-      selectedQtd += 1
+
+  function atualizarTotal() {
+    valorTotal = 0;
+    const items = container.querySelectorAll('.item-carrinho');
+    items.forEach((item, idx) => {
+      const qtd = parseInt(item.querySelector('.qtd').textContent);
+      const preco = parseFloat(carrinho[idx].preco);
+      valorTotal += qtd * preco;
+    });
+    const precoTotal = document.querySelector('.preco-total');
+    if (precoTotal) {
+      precoTotal.textContent = `Total: R$ ${valorTotal.toFixed(2)}`;
     }
-  });
+  }
 
-  qtd.textContent = `${selectedQtd.toFixed(2)}`
-
-  carrinho.forEach((produto) => {
-    valorTotal = selectedQtd * produto.preco
-  })
-  precoTotal.textContent = `${valorTotal.toFixed(2)}`
+  atualizarTotal();
 }
-QtdPreco()
+QtdPreco();
 

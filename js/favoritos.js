@@ -1,120 +1,18 @@
-//linear-container
-const listaProdutos = [
-  {
-    id: 1,
-    nome: 'Caminhão',
-    descricao: 'lorem ipsum',
-    preco: ' 40,00',
-    imagem: '/eixoauto/eixoautopi/img/Produtos/Cabeçote.webp'
-  },
-  {
-    id: 2,
-    nome: 'Carro',
-    descricao: 'lorem ipsum',
-    preco: ' 40,00',
-    imagem: '/eixoauto/eixoautopi/img/Produtos/Cabeçote.webp'
-  },
-  {
-    id: 3,
-    nome: 'Volante',
-    descricao: 'lorem ipsum',
-    preco: ' 40,00',
-    imagem: '/eixoauto/eixoautopi/img/Produtos/Cabeçote.webp'
-  },
-  {
-    id: 4,
-    nome: 'Freio',
-    descricao: 'lorem ipsum',
-    preco: ' 40,00',
-    imagem: '/eixoauto/eixoautopi/img/Laranja.png'
-  },
-  {
-    id: 6,
-    nome: 'Freio',
-    descricao: 'lorem ipsum',
-    preco: ' 40,00',
-    imagem: '/eixoauto/eixoautopi/img/Fornecedores/LF.png'
-  },
-  {
-    id: 7,
-    nome: 'Freio',
-    descricao: 'lorem ipsum',
-    preco: ' 40,00',
-    imagem: '/eixoauto/eixoautopi/img/Fornecedores/LF.png'
+
+// Busca produtos do banco de dados e renderiza nos containers
+async function carregarProdutosDoBanco() {
+  try {
+    const response = await fetch('/eixoauto/eixoautopi/pages/get_produtos.php');
+    const produtos = await response.json();
+    renderizarProdutos(produtos, 'linear-container');
+    renderizarProdutos(produtos, 'lessfluid-linear-container');
+    renderizarProdutos(produtos, 'fluid-linear-container');
+  } catch (e) {
+    console.error('Erro ao carregar produtos do banco:', e);
   }
-];
+}
 
-//Fluid Container 1
-const fluidContainer1 = [
-  {
-    id: 10,
-    nome: 'guuhgerh',
-    descricao: 'lorem ipsum',
-    preco: ' 40,00',
-    imagem: '/eixoauto/eixoautopi/img/Produtos/Cabeçote.webp'
-  },
-  {
-    id: 20,
-    nome: 'ioutjoihngj',
-    descricao: 'lorem ipsum',
-    preco: ' 40,00',
-    imagem: '/eixoauto/eixoautopi/img/Produtos/Cabeçote.webp'
-  },
-  {
-    id: 30,
-    nome: 'guuhgerh',
-    descricao: 'lorem ipsum',
-    preco: ' 40,00',
-    imagem: '/eixoauto/eixoautopi/img/Produtos/Cabeçote.webp'
-  },
-
-]
-
-//Fluid container 2
-const fluidContainer2 = [
-  {
-    id: 100,
-    nome: 'guuhgerh',
-    descricao: 'lorem ipsum',
-    preco: ' 40,00',
-    imagem: '/eixoauto/eixoautopi/img/Produtos/Cabeçote.webp'
-  },
-  {
-    id: 200,
-    nome: 'ioutjoihngj',
-    descricao: 'lorem ipsum',
-    preco: ' 40,00',
-    imagem: '/eixoauto/eixoautopi/img/Produtos/Cabeçote.webp'
-  },
-  {
-    id: 300,
-    nome: 'Caminhão',
-    descricao: 'lorem ipsum',
-    preco: ' 40,00',
-    imagem: '/eixoauto/eixoautopi/img/Produtos/Cabeçote.webp'
-  },
-  {
-    id: 400,
-    nome: 'Caminhão',
-    descricao: 'lorem ipsum',
-    preco: ' 40,00',
-    imagem: '/eixoauto/eixoautopi/img/Produtos/Cabeçote.webp'
-  },
-  {
-    id: 500,
-    nome: 'Caminhão',
-    descricao: 'lorem ipsum',
-    preco: ' 40,00',
-    imagem: '/eixoauto/eixoautopi/img/Produtos/Cabeçote.webp'
-  },
-]
-
-
-//INDEX
-
-renderizarProdutos(listaProdutos, 'linear-container');
-renderizarProdutos(fluidContainer1, 'lessfluid-linear-container');
-renderizarProdutos(fluidContainer2, 'fluid-linear-container');
+carregarProdutosDoBanco();
 
 function renderizarProdutos(lista, containerClasse) {
   const containers = document.querySelectorAll(`.${containerClasse}`);
