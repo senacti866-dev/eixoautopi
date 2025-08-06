@@ -134,7 +134,7 @@ function renderizarProdutos(lista, containerClasse) {
       div.style.cursor = 'pointer';
       div.addEventListener('click', () => {
         apresentar(produto);
-        window.location.href = '/eixoauto/eixoautopi/pages/compra.html'; // Redireciona à página de compra
+        window.location.href = '/eixoauto/eixoautopi/pages/compra.php'; // Redireciona à página de compra
       });
 
       container.appendChild(div);
