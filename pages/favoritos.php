@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Favoritos</title>
-    <link rel="stylesheet" href="/eixoautopi/css/favoritos.css">
+    <link rel="stylesheet" href="/eixoauto/eixoautopi/css/favoritos.css">
 </head>
 
 <body>
     <header>
         <div id="logo">
-            <a href="/eixoautopi/pages/index.html"><img src="/eixoautopi/img//Icons/Logo E branca real.png" alt="Logo da empresa `Eixo`"></a>
+            <a href="/eixoauto/eixoautopi/pages/index.html"><img src="/eixoauto/eixoautopi/img//Icons/Logo E branca real.png" alt="Logo da empresa `Eixo`"></a>
         </div>
 
     </header>
@@ -25,15 +25,15 @@
     
                 <div class="content">
                     <h2>R$ 40,00</h2>
-                    <img class="compras" src="/eixoautopi/img/Icons/carrinho-branco.png" alt="">
+                    <img class="compras" src="/eixoauto/eixoautopi/img/Icons/carrinho-branco.png" alt="">
                 </div>  -->
             </div>
         </div>
     </div>
 
-    <script src="/eixoautopi/js/favoritos.js"></script>
-    <script src="/eixoautopi/js/index.js"></script>
-    <script src="/eixoautopi/js/carrinho.js"></script>
+    <script src="/eixoauto/eixoautopi/js/favoritos.js"></script>
+    <script src="/eixoauto/eixoautopi/js/index.js"></script>
+    <script src="/eixoauto/eixoautopi/js/carrinho.js"></script>
 
 </body>
 

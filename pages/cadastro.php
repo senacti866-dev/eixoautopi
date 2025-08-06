@@ -5,18 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
-    <link rel="stylesheet" href="/eixoautopi/css/cadastro.css">
+    <link rel="stylesheet" href="/eixoauto/eixoautopi/css/cadastro.css">
 </head>
 
 <body>
 
     <header>
         <div id="logo">
-            <img src="/eixoautopi/img/Icons/Logo E branca real.png" alt="Logo da empresa Eixo">
+            <img src="/eixoauto/eixoautopi/img/Icons/Logo E branca real.png" alt="Logo da empresa Eixo">
         </div>
 
         <nav>
-            <a href="/eixoautopi/pages/index.html">⇠ Voltar</a>
+            <a href="/eixoauto/eixoautopi/pages/index.php">⇠ Voltar</a>
         </nav>
     </header>
 
@@ -90,7 +90,7 @@
             </button>
         </form>
     </div>
-    <script src="/eixoautopi/js/cadastro.js"></script>
+    <script src="/eixoauto/eixoautopi/js/cadastro.js"></script>
 </body>
 
 </html>

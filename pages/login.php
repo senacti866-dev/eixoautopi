@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="/eixoautopi/css/login.css">
+    <link rel="stylesheet" href="/eixoauto/eixoautopi/css/login.css">
 </head>
 <body>
     <header>
         <div>
-            <img id="logo" src ="/eixoautopi/img/Icons/Logo E branca real.png" alt="">
+            <img id="logo" src ="/eixoauto/eixoautopi/img/Icons/Logo E branca real.png" alt="">
         </div>
     </header>
     
@@ -27,7 +27,7 @@
             <button type="submit">Entrar</button>
 
             <nav id="signup-link">
-             <p>Ainda não tem uma conta? <a href="/eixoautopi/pages/cadastro.html">Cadastre-se</a></p>
+             <p>Ainda não tem uma conta? <a href="/eixoauto/eixoautopi/pages/cadastro.php">Cadastre-se</a></p>
             </nav>
         </form>
     </div>

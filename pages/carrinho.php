@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrinho de compras</title>
-    <link rel="stylesheet" href="/eixoautopi/css/carrinho.css">
+    <link rel="stylesheet" href="/eixoauto/eixoautopi/css/carrinho.css">
 </head>
 
 <body>
     <header>
         <div id="logo">
-            <a href="/eixoautopi/pages/index.html"><img src="/eixoautopi/img//Icons/Logo E branca real.png" alt="Logo da empresa Eixo"></a>
+            <a href="/eixoauto/eixoautopi/pages/index.php"><img src="/eixoauto/eixoautopi/img//Icons/Logo E branca real.png" alt="Logo da empresa Eixo"></a>
         </div>
     </header>
 
@@ -25,15 +25,15 @@
             <h1>${produto.preco}</h1>
         </div>
         <div class="quantity">
-            <button class="btn" id="less"><img src="/eixoautopi/img/Icons/subtracao-Icon.png" alt=""></button>
+            <button class="btn" id="less"><img src="/eixoauto/eixoautopi/img/Icons/subtracao-Icon.png" alt=""></button>
             <div class="number-qtt"></div>
-            <button class="btn" id="more"><img src="/eixoautopi/img/Icons/adicao-Icon.png" alt=""></button>
+            <button class="btn" id="more"><img src="/eixoauto/eixoautopi/img/Icons/adicao-Icon.png" alt=""></button>
         </div>
     `; -->
     </div>
 
-    <script src="/eixoautopi/js/carrinho.js"></script>
-    <script src="/eixoautopi/js/favoritos.js"></script>
+    <script src="/eixoauto/eixoautopi/js/carrinho.js"></script>
+    <script src="/eixoauto/eixoautopi/js/favoritos.js"></script>
 </body>
 
 </html>
