@@ -22,20 +22,20 @@ if (isset($_POST['submit'])) {
 
         if (password_verify($senha, $db_senha)) { 
             // Login bem-sucedido
-            $_SESSION['Cli_id'] = $id; 
-            $_SESSION['Ins_CNPJ'] = $db_cnpj; 
-            header("Location: home.php"); 
+            $_SESSION['id'] = $id; 
+            $_SESSION['cnpj'] = $db_cnpj; 
+            header("Location: index.php"); 
             exit;
         } else {
             // Senha incorreta
             $_SESSION['erro'] = "Senha incorreta!";
-            header("Location: verificar_login.php");
+            header("Location: cadastro.php");
             exit;
         }
     } else {
         // Usuário não encontrado
         $_SESSION['erro'] = "Usuário não encontrado!";
-        header("Location: verificar_login.php");
+        header("Location: login.php");
         exit;
     }
 }
@@ -56,17 +56,17 @@ if (isset($_POST['submit'])) {
     </header>
     
     <div class="container">
-        <form action="#" method="POST">
+        <form action="login.php" method="POST">
             <h2>Login</h2>
             <ul class="input-group">
-                <label for="username">CNPJ:</label>
-                <input type="text" id="username" name="username" required>
+                <label for="Ins_CNPJ">CNPJ:</label>
+                <input type="text" id="Ins_CNPJ" name="Ins_CNPJ" required>
             <ul>
             <ul class="input-group">
-                <label for="password">Senha:</label>
-                <input type="password" id="password" name="password" required>
+                <label for="Cli_Senha">Senha:</label>
+                <input type="password" id="Cli_Senha" name="Cli_Senha" required>
             <ul>
-            <button type="submit">Entrar</button>
+            <button type="submit" name="submit">Entrar</button>
 
             <nav id="signup-link">
              <p>Ainda não tem uma conta? <a href="/eixoauto/eixoautopi/pages/cadastro.php">Cadastre-se</a></p>
