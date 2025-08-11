@@ -8,6 +8,7 @@ body {
     padding: 0%;
     margin: 0%;
     justify-items: center;
+    font-family: Arial, Helvetica, sans-serif;
     background-color: #F3F4F7;
 }
 
@@ -56,6 +57,7 @@ li:hover{
     width: 70%;
     min-height: 100%;
     margin-top: 70px;
+    margin-bottom: 110px;
     display: flex;
     justify-self: center;
     flex-direction: row;
@@ -93,9 +95,10 @@ li:hover{
     width: 30%;
     height: 25%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-self: center;
     text-align: center;
+    gap: 20px;
     border-radius: 5px;
 }
 
@@ -112,7 +115,6 @@ h2 {
 }
 
 .quantity {
-    width: 30%;
     height: 30px;
     display: flex;
     flex-direction: row;
@@ -144,6 +146,30 @@ h2 {
 
 .btn img:hover{
     opacity: 1;
+}
+
+.finalize-shop{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    background-color: #F3F4F7;
+}
+
+.buy{
+    width: 25%;
+    height: 50%;
+    border-radius: 5px;
+    background-color: rgb(142, 0, 0);
+    color: #fff;
+    cursor: pointer;
+}
+.buy:hover{
+    background-color: rgb(190, 0, 0);
 }
 
 

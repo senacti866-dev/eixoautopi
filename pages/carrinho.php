@@ -10,12 +10,12 @@
 <body>
     <header>
         <div id="logo">
-            <a href="/eixoauto/eixoautopi/pages/index.php"><img src="/eixoauto/eixoautopi/img//Icons/Logo E branca real.png" alt="Logo da empresa Eixo"></a>
+            <a href="/eixoauto/eixoautopi/pages/index.php"><img src="/eixoauto/eixoautopi/img/Icons/Logo E branca real.png" alt="Logo da empresa Eixo"></a>
         </div>
     </header>
 
     <div id="select-menu-container">
-    </div>
+    </div> 
 
     <div id="carrinho">
         <!-- <input type="checkbox" name="select-product" id="select-product">
@@ -24,6 +24,7 @@
         <div class="prize">
             <h1>${produto.preco}</h1>
         </div>
+        
         <div class="quantity">
             <button class="btn" id="less"><img src="/eixoauto/eixoautopi/img/Icons/subtracao-Icon.png" alt=""></button>
             <div class="number-qtt"></div>
@@ -32,8 +33,15 @@
     `; -->
     </div>
 
+    <div class="finalize-shop">
+        <div class="prize">
+            <p>Valor Total: </p>
+            <h1 id="Preco-Final">Preço Total</h1>
+        </div>
+        <button class="buy">Finalizar Compra</button>
+    </div>
+
     <script src="/eixoauto/eixoautopi/js/carrinho.js"></script>
     <script src="/eixoauto/eixoautopi/js/favoritos.js"></script>
 </body>
-
 </html>

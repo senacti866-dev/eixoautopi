@@ -12,11 +12,51 @@ function cartaoInfo() {
 };
 
 // Produtos fictícios
-const produtos = [
-    { nome: 'Produto A', preco: 59.90 },
-    { nome: 'Produto B', preco: 89.00 },
-    { nome: 'Produto C', preco: 120.00 }
-];
+function AprsentarProdutos() {
+
+    const produto = JSON.parse(localStorage.getItem('produto-compra')) || [];
+    const container = document.getElementById('carrinho');
+    container.innerHTML = '';
+
+    if (carrinho.length === 0) {
+        container.innerHTML = "<p>Seu carrinho está vazio.</p>";
+        return;
+    }
+
+    carrinho.forEach(produto => {
+        const div = document.createElement('div');
+        div.classList.add('item-carrinho');
+        div.innerHTML = `
+      <input type="checkbox" name="select-product" class="select-product" data-id="${produto.id}">
+      <img class="products" src="${produto.imagem}" alt="${produto.nome}">
+      <h2>${produto.nome}</h2>
+      <div class="quantity">
+        <button class="btn"><img class="less" src="/EixoAuto/img/Icons/subtracao-Icon.png" alt=""></button>
+        <div class="qtd">1</div>
+        <button class="btn"><img class="more" src="/EixoAuto/img/Icons/adicao-Icon.png" alt=""></button>
+      </div>
+      <div class="prize">
+        <h1>${produto.preco}</h1>
+      </div>
+    `;
+        container.appendChild(div);
+    });
+}
+
+function ProdutosValor() {
+    let valorTotalCompra = JSON.parseFloat(localStorage.getItem('totalCompra')) || 0;
+    const totalEl = document.getElementById('valor-total');
+    const cupom = document.getElementById('cupom-input')
+    totalEl.textContent = `Total: R$ ${valorTotalCompra.toFixed(2).replace('.', ',')}`;
+
+    if (cupom.value === "10EIXOAUTO") {
+        valorTotalCompra = valorTotalCompra - (valorTotalCompra * 0.1)
+    } else if (cupom.value === "5EIXOAUTO") {
+        valorTotalCompra = valorTotalCompra - (valorTotalCompra * 0.05)
+    }
+
+    totalEl.textContent = `Total: R$ ${valorTotalCompra.toFixed(2).replace('.', ',')}`;
+}
 
 // Endereço inicial
 let enderecoAtual = "Rua Exemplo, 123 - Bairro - Cidade/UF";

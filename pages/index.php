@@ -81,7 +81,7 @@
 
         <div class="container-slide"> <!-- Slide -->
             <div class="carousel-slide" id="slider">
-                <img class="img-slides" src="/eixoauto/eixoautopi/img/Propagandas/prop-FG.png" alt="">
+                <img class="img-slides" src="/eixoauto/eixoautopi/img/Propagandas/slide-FreteGratis.png" alt="">
                 <img class="img-slides" src="/eixoauto/eixoautopi/img/Propagandas/propaganda4.svg" alt="">
                 <img class="img-slides" src="/eixoauto/eixoautopi/img/Propagandas/propaganda-LongPage.png" alt="">
             </div>

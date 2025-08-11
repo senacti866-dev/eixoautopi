@@ -7,6 +7,10 @@ async function carregarProdutosDoBanco() {
     renderizarProdutos(produtos, 'linear-container');
     renderizarProdutos(produtos, 'lessfluid-linear-container');
     renderizarProdutos(produtos, 'fluid-linear-container');
+
+    selectContainer('linear-container');
+    selectContainer('lessfluid-linear-container');
+    selectContainer('fluid-linear-container');
   } catch (e) {
     console.error('Erro ao carregar produtos do banco:', e);
   }
@@ -23,21 +27,49 @@ function renderizarProdutos(lista, containerClasse) {
       const div = document.createElement('div');
       div.classList.add('produto');
       div.innerHTML = `
-        <img class="fav_heart" src="/eixoauto/eixoautopi/img/Icons/heart.png" alt="Ícone de favoritos" onclick='favoritar(${JSON.stringify(produto)})'>
+        <img class="fav_heart" src="/eixoauto/eixoautopi/img/Icons/heart.png" alt="Ícone de favoritos" >
         <img class="produtos" src="${produto.imagem}" alt="${produto.nome}">
         <a href="#">${produto.nome}</a>
         <h2>${produto.preco}</h2>
       `;
 
+      const favBtn = div.querySelector('.fav_heart');
+      favBtn.addEventListener('click', (event) => {
+        event.stopPropagation(); // evita que o clique suba para o div
+        favoritar(produto);
+      });
+
+
       div.style.cursor = 'pointer';
       div.addEventListener('click', () => {
         apresentar(produto);
-        window.location.href = '/eixoauto/eixoautopi/pages/compra.php'; // Redireciona à página de compra
-      });
+      })
+
 
       container.appendChild(div);
     });
   });
+}
+
+//Icon "Favoritar" ação de click
+
+function selectContainer(containerClasse) {
+    const containers = document.querySelectorAll(`.${containerClasse}`);
+    if (!containers.length) return;
+
+    containers.forEach(container => {
+        const favIcons = container.querySelectorAll('.fav_heart');
+
+        favIcons.forEach(icon => {
+            icon.addEventListener("click", () => {
+                if (icon.src.includes("/eixoauto/eixoautopi/img/Icons/heart.png")) {
+                    icon.src = "/eixoauto/eixoautopi/img/Icons/heart-checked.png";
+                } else {
+                    icon.src = "/eixoauto/eixoautopi/img/Icons/heart.png";
+                }
+            });
+        });
+    });
 }
 
 
