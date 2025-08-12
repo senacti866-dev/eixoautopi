@@ -113,29 +113,3 @@ setInterval(() => {
     }
     Banner()
 }, 3000);
-
-
-//Icon "Favoritar" ação de click
-
-selectContainer('linear-container');
-selectContainer('lessfluid-linear-container');
-selectContainer('fluid-linear-container');
-
-function selectContainer(containerClasse) {
-    const containers = document.querySelectorAll(`.${containerClasse}`);
-    if (!containers.length) return;
-
-    containers.forEach(container => {
-        const favIcons = container.querySelectorAll('.fav_heart');
-
-        favIcons.forEach(icon => {
-            icon.addEventListener("click", () => {
-                if (icon.src.includes("/eixoauto/eixoautopi/img/Icons/heart.png")) {
-                    icon.src = "/eixoauto/eixoautopi/img/Icons/heart-checked.png";
-                } else {
-                    icon.src = "/eixoauto/eixoautopi/img/Icons/heart.png";
-                }
-            });
-        });
-    });
-}

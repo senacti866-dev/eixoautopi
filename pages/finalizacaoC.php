@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/eixoautopi/css/finalizacaoC.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="/eixoauto/eixoautopi/css/finalizacaoC.css">
+    <title>Finalização de Compra</title>
 </head>
 <body>
     <div class="checkout-container">
@@ -24,14 +24,28 @@
             </div>
         </div>
 
+        <div class="section">
+            <h3>Produtos</h3>
+            <div class="produtos">
+                
+            </div>
+            <!-- Colocar os produtos que foram comprados -->
+        </div>
+
         <!-- Forma de Pagamento -->
         <div class="section">
             <h3>Forma de Pagamento</h3>
-            <img src="/eixoauto/eixoautopi/img/Icons/Card-Icon.png" alt="Ícone Cartão de Crédito" onclick="cartaoInfo()">
-            <img src="/eixoauto/eixoautopi/img/Icons/Pix-Icon.png" alt="Ícone Pix">
-            <img src="/eixoauto/eixoautopi/img/Icons/Ticket-Icon.png" alt="Ícone Boleto">
+            <img class="forma-de-pagamento" src="/eixoauto/eixoautopi/img/Icons/Card-Icon.png" alt="Ícone Cartão de Crédito" onclick="cartaoInfo()">
+            <img class="forma-de-pagamento" src="/eixoauto/eixoautopi/img/Icons/Pix-Icon.png" alt="Ícone Pix">
+            <img class="forma-de-pagamento" src="/eixoauto/eixoautopi/img/Icons/Ticket-Icon.png" alt="Ícone Boleto">
         </div>
 
+        <div class="section">
+            <h3>Cupom</h3>
+            <input id="Cupom-input" type="text" placeholder="Insira o cupom">
+            <button id="search-cupom"></button>
+
+        </div>
         <!-- Produtos -->
         <div class="section">
             <h3>Valor dos Produtos</h3>
