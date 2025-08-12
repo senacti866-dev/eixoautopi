@@ -1,3 +1,63 @@
+// Função para renderizar resultados de busca
+function renderizarBusca(produtos) {
+  const container = document.querySelector('.linear-container');
+  if (!container) return;
+  container.innerHTML = '';
+  if (!produtos.length) {
+    container.innerHTML = '<p>Nenhum produto encontrado.</p>';
+    return;
+  }
+  produtos.forEach(produto => {
+    const div = document.createElement('div');
+    div.classList.add('produto');
+    div.innerHTML = `
+      <img class="produtos" src="${produto.imagem}" alt="${produto.nome}">
+      <a href="#">${produto.nome}</a>
+      <h2>${produto.preco}</h2>
+    `;
+    container.appendChild(div);
+  });
+}
+
+// Evento de busca
+const inputBusca = document.getElementById('input-busca');
+const btnBusca = document.getElementById('btn-busca');
+
+function buscarProdutos() {
+  const termo = inputBusca.value.trim();
+  if (termo.length > 0) {
+    fetch(`/eixoauto/eixoautopi/pages/search_produtos.php?q=${encodeURIComponent(termo)}`)
+      .then(res => res.json())
+      .then(produtos => {
+        console.log('Resultado da busca:', produtos);
+        if (produtos.error) {
+          const container = document.querySelector('.linear-container');
+          if (container) {
+            container.innerHTML = `<p style='color:red;'>Erro: ${produtos.error}<br>SQL: ${produtos.sql}<br>DB: ${produtos.db_error}</p>`;
+          }
+        } else {
+          renderizarBusca(produtos);
+        }
+      })
+      .catch(err => {
+        const container = document.querySelector('.linear-container');
+        if (container) {
+          container.innerHTML = `<p style='color:red;'>Erro de conexão: ${err}</p>`;
+        }
+      });
+  }
+}
+
+if (inputBusca) {
+  inputBusca.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+      buscarProdutos();
+    }
+  });
+}
+if (btnBusca) {
+  btnBusca.addEventListener('click', buscarProdutos);
+}
 const carrossels = document.querySelectorAll('.container-slide');
 carrossels.forEach(container => {
   const slide = container.querySelector('.carousel-slide');

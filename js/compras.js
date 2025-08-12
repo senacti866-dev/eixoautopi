@@ -50,22 +50,22 @@ function PaginaDeProdutos() {
     fetch(`/eixoauto/eixoautopi/pages/get_ofertas_produto.php?codigo=${encodeURIComponent(produto.codigo)}`)
       .then(res => res.json())
       .then(ofertas => {
+        const section = document.getElementById('product-section');
+        if (!section) return;
         if (ofertas.length > 1) {
-          const ofertasDiv = document.createElement('div');
-          ofertasDiv.classList.add('ofertas-outros-fornecedores');
-          ofertasDiv.innerHTML = '<h3>Ofertas de outros fornecedores:</h3>';
+          let html = '<h3>Ofertas de outros fornecedores:</h3>';
           ofertas.forEach(oferta => {
             if (oferta.id != produto.id) {
-              ofertasDiv.innerHTML += `
-                <div class="oferta-item">
+              html += `
+                <div class="oferta-item" style="margin-bottom:10px;">
                   <span><b>${oferta.fornecedor}</b></span> - 
                   <span>R$ ${oferta.preco}</span>
-                  <a href="${oferta.link_fornecedor}" target="_blank">Ver na loja</a>
+                  <a href="${oferta.link_fornecedor}" target="_blank" style="margin-left:10px;">Ver na loja</a>
                 </div>
               `;
             }
           });
-          container.appendChild(ofertasDiv);
+          section.innerHTML += html;
         }
       });
   }

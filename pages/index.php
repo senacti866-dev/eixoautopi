@@ -19,8 +19,11 @@
             </div>
 
             <div id="header-content"> <!-- Container do input e âncoras da página -->
-                <div id="pesquisa">
-                    <input placeholder="Buscar..." type="text">
+                <div id="pesquisa" style="display: flex; align-items: center; gap: 8px;">
+                    <input placeholder="Buscar..." type="text" id="input-busca">
+                    <button id="btn-busca" style="background: none; border: none; cursor: pointer;">
+                        <img src="/eixoauto/eixoautopi/img/Icons/search-icon.png" alt="Buscar" style="width: 24px; height: 24px;">
+                    </button>
                 </div>
 
                 <ul>
