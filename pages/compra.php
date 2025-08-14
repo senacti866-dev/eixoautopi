@@ -20,19 +20,42 @@
   </div>
 
   <div class="comparison">
-    <div class="product-section" id="product-section">
-      <a href=""><img class="img-product" src="/eixoauto/eixoautopi/img/Propagandas/propaganda1.svg" alt=""></a>
-      <div class="prize">
-        <a href="">Eixo Dianteiro</a>
-        <h1>R$ 230,00</h1>
-      </div>
-      <div class="store-link">
-        <a href="">Nome empresa<img class="suppliers" src="/eixoauto/eixoautopi/img/Fornecedores/MX Turbo.png"
-            alt="Logo do fornecedor"></a>
-        <a href=""><button>Comprar na Loja</button></a>
-      </div>
-    </div>
+    <?php
+    // Inclua o arquivo de conexão com o banco, se necessário
+    // include('../config.php');
 
+    // Exemplo de conexão (ajuste conforme seu config.php)
+    $conn = new mysqli('localhost', 'root', '', 'db_atvpi');
+    if ($conn->connect_error) {
+      die("Erro de conexão: " . $conn->connect_error);
+    }
+
+    // Busque as ofertas (ajuste a query conforme sua tabela)
+    $sql = "SELECT p.nome, p.preco, p.imagem, f.nome AS fornecedor, f.logo
+            FROM tb_produto p
+            JOIN tb_fornecedor f ON p.fornecedor_id = f.id
+            LIMIT 10";
+    $result = $conn->query($sql);
+
+    if ($result && $result->num_rows > 0) {
+      while($row = $result->fetch_assoc()) {
+        echo '<div class="product-section">';
+        echo '  <a href="#"><img class="img-product" src="' . htmlspecialchars($row['imagem']) . '" alt=""></a>';
+        echo '  <div class="prize">';
+        echo '    <a href="#">' . htmlspecialchars($row['nome']) . '</a>';
+        echo '    <h1>R$ ' . number_format($row['preco'], 2, ',', '.') . '</h1>';
+        echo '  </div>';
+        echo '  <div class="store-link">';
+        echo '    <a href="#">' . htmlspecialchars($row['fornecedor']) . '<img class="suppliers" src="' . htmlspecialchars($row['logo']) . '" alt="Logo do fornecedor"></a>';
+        echo '    <a href="#"><button>Comprar na Loja</button></a>';
+        echo '  </div>';
+        echo '</div>';
+      }
+    } else {
+      echo '<p>Nenhuma oferta encontrada.</p>';
+    }
+    $conn->close();
+    ?>
   </div>
 
   <!-- FOOTER -->
