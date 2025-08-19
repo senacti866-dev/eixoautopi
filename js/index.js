@@ -59,47 +59,44 @@ if (btnBusca) {
   btnBusca.addEventListener('click', buscarProdutos);
 }
 
-let i = 0;
-let totalImages = 0;
-let slide = null;
 const carrossels = document.querySelectorAll('.container-slide');
 carrossels.forEach(container => {
-  slide = container.querySelector('.carousel-slide');
-  if (!slide) return;
-  const images = slide.querySelectorAll('.img-slides');
-  totalImages = images.length;
-});
+    const slide = container.querySelector('.carousel-slide');
+    const images = slide.querySelectorAll('.img-slides');
+    const totalImages = images.length; //Não está reconhecendo o totalImages
+    let i = 0;
 
-function updateSlide() {
-  if (slide) {
-    slide.style.transform = `translateX(-${i * 100}%)`;
-  }
-}
 
-document.addEventListener("click", (event) => {
-  if (event.target.id === "next") {
-    i = (i + 1) % totalImages;
-    updateSlide();  
-  }
-});
-
-document.addEventListener("click", (event) => {
-  if (event.target.id === "prev") {
-    i = (i - 1 + totalImages) % totalImages;
-    updateSlide(); 
-  }
-});
-
-setInterval(() => {
-  if (totalImages > 0) {
-    if (i == totalImages - 1) {
-      i = 0;
-    } else {
-      i++;
+    function updateSlide() {
+        slide.style.transform = `translateX(-${i * 100}%)`;
     }
-    updateSlide();
-  }
-}, 5000);
+
+    document.addEventListener("click", (event) => {
+        if (event.target.id === "next") {
+            i = (i + 1) % totalImages;
+            updateSlide();
+        }
+    });
+
+    document.addEventListener("click", (event) => {
+        if (event.target.id === "prev") {
+            i = (i - 1 + totalImages) % totalImages;
+            updateSlide();
+        }
+    });
+
+    // Auto avançar a cada 3 segundos dos slides
+
+    setInterval(() => {
+        if (i == totalImages - 1) {
+            i = 0;
+        } else {
+            i++;
+        }
+        updateSlide()
+    }, 5000);
+});
+
 
 // Auto avançar a cada 3 segundos do banner
 const banner = document.getElementById("banner");
