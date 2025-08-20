@@ -1,29 +1,66 @@
-function cartaoInfo() {
-    const div = document.createElement('div')
-    div.add.classList('cartao-info')
-    div.innerHTML = `
-                <label for="numero-cartao">Número do Cartão:</label>
-                <input type="text" id="numero-cartao" placeholder="0000 0000 0000 0000">
-                <label for="validade">Validade:</label>
-                <input type="text" id="validade" placeholder="MM/AA">
-                <label for="cvv">CVV:</label>
-                <input type="text" id="cvv" placeholder="123">
-            `
-};
+const cartaoIcon = document.getElementById('cartao')
+const container = document.getElementById('payment')
+
+cartaoIcon.addEventListener('click', () => {
+    cartaoIcon.classList.toggle('ativo')
+    container.innerHTML = '';
+
+    if (cartaoIcon.classList.contains('ativo')) {
+        const div = document.createElement('div')
+        div.classList.add('cartao-info')
+        div.innerHTML = `
+            <label for="numero-cartao">Número do Cartão:</label>
+            <input type="text" id="numero-cartao" placeholder="0000 0000 0000 0000">
+            <label for="validade">Validade:</label>
+            <input type="text" id="validade" placeholder="MM/AA">
+            <label for="cvv">CVV:</label>
+            <input type="text" id="cvv" placeholder="123">
+        `
+        container.appendChild(div)
+    }
+});
+
+
+const pixIcon = document.getElementById('pix')
+
+pixIcon.addEventListener('click', () => {
+    pixIcon.classList.toggle('ativo')
+    container.innerHTML = '';
+
+    if (pixIcon.classList.contains('ativo')) {
+        const div = document.createElement('div')
+        div.classList.add('pix-info')
+
+        const randomPixCode = Math.random() *10
+        div.innerHTML = `
+        <img id="Pix-QR" src="/EixoAuto/img/Icons/QrCode-wts.jpeg" alt="Qr-Code Pix">
+        <div class="Code-container">
+            <div id="Pix-Code">${randomPixCode}</div>
+            <button id="Copy-btn"><img src="/EixoAuto/img/Icons/Copy-icon.png" alt=""></button>
+        </div>
+        `
+        
+        container.appendChild(div)
+    }
+});
+
+document.getElementById('Copy-btn').addEventListener('click', () =>{
+    const PixCode = document.getElementById('Pix-Code').textContent
+    navigator.clipboard.writeText(PixCode)
+})
 
 // Produtos fictícios
 function AprsentarProdutos() {
-
     const produto = JSON.parse(localStorage.getItem('produto-compra')) || [];
     const container = document.getElementById('carrinho');
     container.innerHTML = '';
 
-    if (carrinho.length === 0) {
+    if (produto.length === 0) {
         container.innerHTML = "<p>Seu carrinho está vazio.</p>";
         return;
     }
 
-    carrinho.forEach(produto => {
+    produto.forEach(produto => {
         const div = document.createElement('div');
         div.classList.add('item-carrinho');
         div.innerHTML = `
@@ -57,6 +94,7 @@ function ProdutosValor() {
 
     totalEl.textContent = `Total: R$ ${valorTotalCompra.toFixed(2).replace('.', ',')}`;
 }
+
 
 // Endereço inicial
 let enderecoAtual = "Rua Exemplo, 123 - Bairro - Cidade/UF";
@@ -105,10 +143,10 @@ function finalizarCompra() {
 
     alert(`Compra finalizada!\n\nEndereço: ${enderecoAtual}\nPagamento: ${pagamento}\nTotal: R$ ${total}`);
 }
-
+/*
 document.getElementById('pagamento').addEventListener('change', function () {
     const tipo = this.value;
     document.getElementById('cartao-info').style.display = (tipo === 'cartao') ? 'block' : 'none';
 });
-
+*/
 atualizarResumo();

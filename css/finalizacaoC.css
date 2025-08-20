@@ -2,13 +2,39 @@ body {
     font-family: Arial, sans-serif;
     background-color: #F3F4F7;
     margin: 0;
-    padding: 20px;
+    padding: 0px;
 }
 
+/*HEADER*/
+header {
+    height: 145px;
+    width: 100%;
+    margin: 0%;
+    padding: 0%;
+    background-color: #111317;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 70px;
+}
+
+
+#logo img {
+    height: 70px;
+    width: 160px;
+    display: flex;
+    align-self: center;
+}
+
+/*FIM HEADER*/
+
+
 .checkout-container {
-    width: 70%;
+    max-width: 70%;
+    min-height: 100vh;
     margin: auto;
-    background: #fff;
+    background: #D6E0EA;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -23,11 +49,8 @@ h2 {
     margin-bottom: 25px;
 }
 
-input{
-    width: 80%;
-}
-#search-cupom{
-    width: 20;
+img{
+    cursor: pointer;
 }
 
 label {
@@ -45,6 +68,52 @@ textarea {
     border-radius: 4px;
 }
 
+input{
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.checkbox{
+    width: 20px;
+}
+
+#Pix-QR{
+    width: 30%;
+    height: 300px;
+    display: block;
+}
+
+.Code-container{
+    display: flex;
+}
+
+#Pix-Code{
+    width: 30%;
+    height: 20px;
+    text-align: center;
+    padding: 10px;
+    border: 1px, solid #333;
+    border-radius: 5px;
+    cursor: text;
+}
+
+#Copy-btn{
+    width: 80px;
+    height: 40px;
+    font-size: 10px;
+}
+
+#Copy-btn img{
+    width: 60%;
+    object-fit: contain;
+}
+
+#aplicar-cupom{
+    width: 17%;
+    height: 40px;
+}
 .products {
     margin-top: 10px;
 }
@@ -63,7 +132,7 @@ textarea {
 }
 
 button {
-    background-color: #28a745;
+    background-color: #8b0000;
     color: white;
     padding: 12px 20px;
     border: none;
@@ -74,11 +143,11 @@ button {
 }
 
 button:hover {
-    background-color: #218838;
+    background-color: #b80000;
 }
 
 .btn-alterar {
-    background-color: #007bff;
+    background-color: #8b0000;
     color: white;
     padding: 8px 12px;
     font-size: 14px;
@@ -87,5 +156,5 @@ button:hover {
 }
 
 .btn-alterar:hover {
-    background-color: #0056b3;
+    background-color: #b80000;
 }
