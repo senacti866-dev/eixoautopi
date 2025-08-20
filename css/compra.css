@@ -18,9 +18,9 @@ header {
   gap: 25px;
 }
 
-#logo{
+#logo {
   display: flex;
-  align-self: center; 
+  align-self: center;
 }
 
 #logo img {
@@ -40,13 +40,13 @@ header {
 .product-container {
   margin-top: 70px;
   width: 100%;
+  height: 100%;
   display: flex;
   gap: 10px;
 }
 
-.img-box {
+div.img-box {
   width: 650px;
-  height: 350px;
   padding: 15px;
   background-color: #D6E0EA;
   border-radius: 10px;
@@ -97,14 +97,6 @@ h2 {
   gap: 10px;
 }
 
-.rank {
-  width: 80px;
-  height: 50px;
-  text-align: center;
-  border-radius: 10px;
-  background-color: #D6E0EA;
-}
-
 .top-row {
   display: flex;
   align-items: center;
@@ -144,7 +136,7 @@ h2 {
 
 .desc {
   width: 100%;
-  height: 260px;
+  height: 100%;
   overflow-y: scroll;
   background-color: #D6E0EA;
   border-radius: 10px;
@@ -166,9 +158,10 @@ h2 {
   margin-top: 40px;
   width: 70%;
   min-height: 100vh;
-  background-color: #D6E0EA;
   border-radius: 10px;
   display: flex;
+  flex-direction: column;
+  gap: 20px;
   margin-bottom: 20px;
   padding: 20px;
 }
@@ -187,7 +180,7 @@ h2 {
   align-items: center;
   border-radius: 10px;
   padding: 20px;
-  background-color: aqua;
+  background-color: #D6E0EA;
 }
 
 .img-product {
@@ -199,6 +192,41 @@ h2 {
   align-self: center;
   justify-self: flex-start;
 }
+div.icon{
+  width: 30px;
+  height: 60px;
+  display: flex;
+  align-self: flex-end;
+}
+
+
+.btn-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end;
+  gap: 10px;
+}
+
+button{
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  background-color: #1F5070;
+}
+
+button:hover{
+  background-color: #111317;
+
+}
+
+#fav-heart{
+  width: 100%;
+  object-fit: contain;
+}
 
 .prize {
   width: 70%;
@@ -208,7 +236,7 @@ h2 {
   gap: 20px;
 }
 
-.product-section a {
+div.product-section a {
   display: flex;
   align-items: center;
   text-size-adjust: 1.5em;
@@ -252,109 +280,4 @@ h2 {
 .suppliers {
   width: 70px;
   height: 70px;
-}
-
-
-/* Resetando algumas margens e padding */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Estilo do footer */
-footer {
-  background-color: #111317;
-  color: #fff;
-  padding: 40px 0 0 0;
-  width: 100%;
-}
-
-.footer-info img {
-  max-width: 100%;
-  width: 130px;
-  height: auto;
-}
-
-
-/* Container do footer */
-.footer-container {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* Estilo das seções dentro do footer */
-.footer-info,
-.footer-links,
-.footer-social {
-  width: 30%;
-}
-
-.footer-info image {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-.footer-info p {
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-.footer-links h3,
-.footer-social h3 {
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.footer-links ul,
-.footer-social ul {
-  list-style: none;
-}
-
-.footer-links li,
-.footer-social li {
-  margin-bottom: 8px;
-}
-
-.footer-links a,
-.footer-social a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 14px;
-}
-
-.footer-links a:hover,
-.footer-social a:hover {
-  text-decoration: underline;
-}
-
-/* Estilo para o rodapé inferior */
-.footer-bottom {
-  text-align: center;
-  background-color: #222;
-  padding: 15px 0;
-  margin-bottom: 0;
-}
-
-.footer-bottom p {
-  font-size: 14px;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-  .footer-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .footer-info,
-  .footer-links,
-  .footer-social {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 20px;
-  }
 }
