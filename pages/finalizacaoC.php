@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/eixoauto/eixoautopi/css/finalizacaoC.css">
-    <title>Finalização de Compra</title>
+    <title>Document</title>
 </head>
+
 <body>
+
+    <header>
+        <div id="logo">
+            <a href="/eixoauto/eixoautopi/pages/index.php"><img src="/eixoauto/eixoautopi/img/Icons/Logo E branca real.png" alt="Logo da empresa Eixo"></a>
+        </div>
+    </header>
     <div class="checkout-container">
 
         <!-- Endereço -->
@@ -26,26 +34,27 @@
 
         <div class="section">
             <h3>Produtos</h3>
-            <div class="produtos">
-                
-            </div>
-            <!-- Colocar os produtos que foram comprados -->
         </div>
+
 
         <!-- Forma de Pagamento -->
         <div class="section">
             <h3>Forma de Pagamento</h3>
-            <img class="forma-de-pagamento" src="/eixoauto/eixoautopi/img/Icons/Card-Icon.png" alt="Ícone Cartão de Crédito" onclick="cartaoInfo()">
-            <img class="forma-de-pagamento" src="/eixoauto/eixoautopi/img/Icons/Pix-Icon.png" alt="Ícone Pix">
-            <img class="forma-de-pagamento" src="/eixoauto/eixoautopi/img/Icons/Ticket-Icon.png" alt="Ícone Boleto">
+            <input type="radio" name="Select-Payment" class="checkbox" id="cartao">
+            <img id="cartao" src="/eixoauto/eixoautopi/img/Icons/Card-Icon.png" alt="Ícone Cartão de Crédito">
+            <input type="radio" name="Select-Payment" class="checkbox" id="pix">
+            <img id="pix" src="/eixoauto/eixoautopi/img/Icons/Pix-Icon.png" alt="Ícone Pix">
+            <input type="radio" name="Select-Payment" class="checkbox" id="boleto">
+            <img id="boleto" src="/eixoauto/eixoautopi/img/Icons/Ticket-Icon.png" alt="Ícone Boleto">
+            <div id="payment"></div>
         </div>
 
         <div class="section">
             <h3>Cupom</h3>
-            <input id="Cupom-input" type="text" placeholder="Insira o cupom">
-            <button id="search-cupom"></button>
-
+            <input id="cupom-code" type="text" placeholder="Insira o código do Cupom">
+            <button id="aplicar-cupom">Aplicar</button>
         </div>
+
         <!-- Produtos -->
         <div class="section">
             <h3>Valor dos Produtos</h3>
@@ -54,10 +63,11 @@
         </div>
 
         <!-- Botão de Finalizar -->
-        <button onclick="finalizarCompra()">Finalizar Compra</button>
+        <button onclick="finalizarCompra()">Comprar</button>
     </div>
 
     <script src="/eixoauto/eixoautopi/js/finalizacaoC.js"></script>
+    <script src="/eixoauto/eixoautopi/js/favoritos.js"></script>
 </body>
 
 </html>
