@@ -93,6 +93,7 @@ function ProdutosFavoritados() {
     iconCarrinho.addEventListener('click', () => {
       const produto = JSON.parse(iconCarrinho.getAttribute('produto-carrinho'))
       adicionarNoCarrinho(produto)
+      iconCarrinho.src = '/eixoauto/eixoautopi/img/Icons/carrinho-preenchido.png'
     })
   });
 };
