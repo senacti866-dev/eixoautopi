@@ -1,17 +1,17 @@
 // Busca produtos do banco de dados e renderiza nos containers
 async function carregarProdutosDoBanco() {
   try {
-   
+
     const resp1 = await fetch('/eixoauto/eixoautopi/pages/get_produtos.php?limit=3&offset=0');
     const produtos1 = await resp1.json();
     renderizarProdutos(produtos1, 'linear-container');
 
-  
+
     const resp2 = await fetch('/eixoauto/eixoautopi/pages/get_produtos.php?limit=5&offset=3');
     const produtos2 = await resp2.json();
     renderizarProdutos(produtos2, 'lessfluid-linear-container');
 
-   
+
     const resp3 = await fetch('/eixoauto/eixoautopi/pages/get_produtos.php?limit=7&offset=8');
     const produtos3 = await resp3.json();
     renderizarProdutos(produtos3, 'fluid-linear-container');
@@ -38,10 +38,15 @@ function renderizarProdutos(lista, containerClasse) {
       `;
 
       div.style.cursor = 'pointer';
-      div.addEventListener('click', () => {
-        apresentar(produto);
-        window.location.href = '/eixoauto/eixoautopi/pages/compra.php'; 
-      })
+      div.addEventListener('click', (event) => {
+        if (event.target.closest('img.fav_heart')) {
+          favoritar(produto);
+          return;
+        } else {
+          apresentar(produto);
+          window.location.href = '/eixoauto/eixoautopi/pages/compra.php';
+        }
+      });
 
       container.appendChild(div);
     });
@@ -53,10 +58,10 @@ function renderizarProdutos(lista, containerClasse) {
 function favoritar(produto) {
   let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
   if (!favoritos.find(p => p.id === produto.id)) {
-    favoritos.push(produto); 
+    favoritos.push(produto);
     localStorage.setItem('favoritos', JSON.stringify(favoritos));
   } else {
-    alert('Produto já favoritado!'); 
+    alert('Produto já favoritado!');
   }
 };
 
@@ -64,7 +69,7 @@ function favoritar(produto) {
 //FAVORITOS
 
 function ProdutosFavoritados() {
-  const favoritos = JSON.parse(localStorage.getItem('favoritos')) || []; 
+  const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
   const container = document.getElementById('favoritos-container');
   container.innerHTML = ''
 
@@ -73,9 +78,9 @@ function ProdutosFavoritados() {
     return;
   }
 
-  favoritos.forEach((produto) => { 
+  favoritos.forEach((produto) => {
     const div = document.createElement('div');
-    div.classList.add('produto'); 
+    div.classList.add('produto');
     div.innerHTML =
       `
       <img class="fav_heart" src="/eixoauto/eixoautopi/img/Icons/heart-checked.png" alt= "Ícone de favoritos" onclick="removerFavorito(${produto.id})">
@@ -93,7 +98,7 @@ function ProdutosFavoritados() {
     iconCarrinho.addEventListener('click', () => {
       const produto = JSON.parse(iconCarrinho.getAttribute('produto-carrinho'))
       adicionarNoCarrinho(produto)
-      iconCarrinho.src = '/eixoauto/eixoautopi/img/Icons/carrinho-preenchido.png'
+
     })
   });
 };
@@ -101,8 +106,8 @@ function ProdutosFavoritados() {
 //DELETE
 
 function removerFavorito(id) {
-  let favoritos = JSON.parse(localStorage.getItem('favoritos')) || []; 
-  favoritos = favoritos.filter(p => p.id !== id); 
+  let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+  favoritos = favoritos.filter(p => p.id !== id);
   localStorage.setItem('favoritos', JSON.stringify(favoritos));
   ProdutosFavoritados();
 }
