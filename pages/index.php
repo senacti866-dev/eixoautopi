@@ -58,6 +58,12 @@
             <img class="img-banner" src="/eixoauto/eixoautopi/img/Propagandas/banner-3.png" alt="">
         </div>
     </div>
+    <!-- Área de Resultados da Busca -->
+    <div id="resultado-busca" style="display: none; padding: 20px;">
+        <h2>Resultados da Busca:</h2>
+        <div class="busca-container" style="display: flex; flex-wrap: wrap; gap: 20px;"></div>
+    </div>
+
 
     <div class="container"> <!-- Pai de todos os elementos, delimitador do width da página -->
 

@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
   CarrinhodeProdutos();
-})
+  SelectProducts();
+  QtdPreco();
+  FinalizacaoCompra();
+});
 
 async function carregarProdutosDoBanco() {
   try {
@@ -10,18 +13,17 @@ async function carregarProdutosDoBanco() {
     console.error('Erro ao carregar produtos do banco:', e);
   }
 }
-
 carregarProdutosDoBanco();
 
-function adicionarNoCarrinho(produto) { //Essa função está funcionando corretamente
+function adicionarNoCarrinho(produto) {
   let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
   if (!carrinho.find(p => p.id === produto.id)) {
-    carrinho.push(produto); //Push no produto
+    carrinho.push(produto);
     localStorage.setItem('carrinho', JSON.stringify(carrinho));
   } else {
-    alert('Produto já está no carrinho!'); //Caso o produto já esteja no arquivo JSON
+    alert('Produto já está no carrinho!');
   }
-};
+}
 
 function CarrinhodeProdutos() {
   const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
@@ -51,25 +53,26 @@ function CarrinhodeProdutos() {
     `;
 
     div.style.cursor = 'pointer';
-    div.addEventListener('click', () => {
+
+    // Evita redirecionamento ao clicar na checkbox
+    div.addEventListener('click', (event) => {
+      if (event.target.classList.contains('select-product')) return;
       apresentar(produto);
-      window.location.href = '/eixoauto/eixoautopi/pages/compra.php'; // Redireciona à página de compra
+      window.location.href = '/eixoauto/eixoautopi/pages/compra.php';
     });
+
     container.appendChild(div);
   });
 }
 
-//Seleção de produtos
-
 function SelectProducts() {
-  const container = document.getElementById('select-menu-container')
+  const container = document.getElementById('select-menu-container');
   container.innerHTML = '';
 
-  const div = document.createElement('div')
-  div.classList.add('select-menu')
-  container.appendChild(div)
+  const div = document.createElement('div');
+  div.classList.add('select-menu');
+  container.appendChild(div);
 
-  //Substituir as varáveis produto.preço pelo valor total da soma de todos os produtos
   document.addEventListener('click', (event) => {
     if (event.target.classList.contains('select-product')) {
       div.innerHTML = `
@@ -81,13 +84,10 @@ function SelectProducts() {
     }
   });
 
-  //Clicar no container seleciona o checkbox (FAZER)
-
   function VisibildadeMenu() {
     const checkboxes = document.querySelectorAll('.select-product');
     const algumMarcado = Array.from(checkboxes).some(cb => cb.checked);
     const selectMenu = document.querySelector('.select-menu');
-
     if (selectMenu) {
       selectMenu.style.display = algumMarcado ? 'block' : 'none';
     }
@@ -95,37 +95,32 @@ function SelectProducts() {
 
   document.addEventListener('click', (event) => {
     if (event.target.id === 'selectAll') {
-      const checkboxes = document.querySelectorAll('.select-product')
+      const checkboxes = document.querySelectorAll('.select-product');
       const checkboxesSelected = Array.from(checkboxes).every(cb => cb.checked);
       checkboxes.forEach(cb => cb.checked = !checkboxesSelected);
-      FinalizacaoCompra()
-      VisibildadeMenu()
+      FinalizacaoCompra();
+      VisibildadeMenu();
     }
   });
 
   document.addEventListener('change', (event) => {
     if (event.target.classList.contains('select-product')) {
       FinalizacaoCompra();
-      VisibildadeMenu()
+      VisibildadeMenu();
     }
   });
 
   document.addEventListener('click', (event) => {
     if (event.target.id === 'exclude') {
-      let carrinho = JSON.parse(localStorage.getItem('carrinho')) || []; //Trazendo os elementos de volta do Arquivo JSON para uma array
-      const checkboxesSelected = document.querySelectorAll('.select-product:checked')
-      const idsToExclude = Array.from(checkboxesSelected).map(cbs => parseInt(cbs.dataset.id));
+      let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+      const checkboxesSelected = document.querySelectorAll('.select-product:checked');
+      const idsToExclude = Array.from(checkboxesSelected).map(cb => parseInt(cb.dataset.id));
       carrinho = carrinho.filter(p => !idsToExclude.includes(p.id));
       localStorage.setItem('carrinho', JSON.stringify(carrinho));
       location.reload();
     }
-
-  })
+  });
 }
-SelectProducts()
-
-
-//Quantidade de Produto + Valor Total
 
 function QtdPreco() {
   const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
@@ -145,9 +140,12 @@ function QtdPreco() {
       const produto = carrinho.find(p => p.nome === nome);
       if (!produto) return;
 
-      const precoInicial = parseFloat(produto.preco.replace(',', '.'));
+      const precoInicial = typeof produto.preco === 'string'
+        ? parseFloat(produto.preco.replace(',', '.'))
+        : parseFloat(produto.preco);
 
       let quantidadeAtual = parseInt(qtd.textContent);
+
       if (more) {
         quantidadeAtual++;
       } else if (less && quantidadeAtual > 1) {
@@ -155,21 +153,16 @@ function QtdPreco() {
       }
 
       qtd.textContent = quantidadeAtual;
-
       const total = quantidadeAtual * precoInicial;
       preco.textContent = total.toFixed(2).replace('.', ',');
 
-      FinalizacaoCompra()
+      FinalizacaoCompra();
     }
   });
 }
-QtdPreco();
 
-
-//Valor Total estimado da compra a partir dos produtos selecionados
 function FinalizacaoCompra() {
   const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-
   const checkboxes = document.querySelectorAll('.select-product:checked');
   let valorTotalCompra = 0;
 
@@ -181,24 +174,28 @@ function FinalizacaoCompra() {
       const qtd = container.querySelector('.qtd');
       const quantidade = parseInt(qtd.textContent);
 
-      const precoUnitario = parseFloat(produto.preco.replace(',', '.'));
+      const precoUnitario = typeof produto.preco === 'string'
+        ? parseFloat(produto.preco.replace(',', '.'))
+        : parseFloat(produto.preco);
+
       valorTotalCompra += quantidade * precoUnitario;
     }
   });
 
   const PrecoFinal = document.getElementById('Preco-Final');
-  PrecoFinal.textContent = valorTotalCompra.toFixed(2).replace('.', ',');
+  if (PrecoFinal) {
+    PrecoFinal.textContent = valorTotalCompra.toFixed(2).replace('.', ',');
+  }
 
   localStorage.setItem('totalCompra', valorTotalCompra.toFixed(2));
   return valorTotalCompra;
 }
-FinalizacaoCompra()
-
-//Botão de direcionamento pra página de finalização de compra
 
 document.addEventListener('click', (event) => {
   if (event.target.classList.contains('buy')) {
-    let total = FinalizacaoCompra()
+    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    let total = FinalizacaoCompra();
+
     const produtosAcomprar = Array.from(document.querySelectorAll('.select-product:checked'))
       .map(cb => {
         const id = parseInt(cb.dataset.id);
@@ -206,11 +203,11 @@ document.addEventListener('click', (event) => {
       });
 
     localStorage.setItem('produtos-compra', JSON.stringify(produtosAcomprar));
+
     if (total > 0) {
-      window.location.href = '/eixoauto/eixoautopi/pages/finalizacaoC.html'
+      window.location.href = '/eixoauto/eixoautopi/pages/finalizacaoC.html';
     } else {
-      alert('Nenhum produto foi selecionado. Selecione no mínimo um produto para finalizar a compra.')
+      alert('Nenhum produto foi selecionado. Selecione no mínimo um produto para finalizar a compra.');
     }
   }
-})
-
+});

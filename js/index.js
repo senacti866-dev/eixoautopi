@@ -1,23 +1,46 @@
 // Função para renderizar resultados de busca
+// Função para renderizar resultados de busca
 function renderizarBusca(produtos) {
-  const container = document.querySelector('.linear-container');
-  if (!container) return;
+  const resultadoBusca = document.getElementById('resultado-busca');
+  const container = resultadoBusca.querySelector('.busca-container');
+
+  resultadoBusca.style.display = 'block';
+  document.querySelector('.container').style.display = 'none';
   container.innerHTML = '';
+
   if (!produtos.length) {
     container.innerHTML = '<p>Nenhum produto encontrado.</p>';
     return;
   }
+
   produtos.forEach(produto => {
     const div = document.createElement('div');
     div.classList.add('produto');
     div.innerHTML = `
+      <img class="fav_heart" src="/eixoauto/eixoautopi/img/Icons/heart.png" alt="Favoritar">
       <img class="produtos" src="${produto.imagem}" alt="${produto.nome}">
       <a href="#">${produto.nome}</a>
       <h2>${produto.preco}</h2>
     `;
+
+    div.style.cursor = 'pointer';
+
+    // Clique no card = ir para página de compra
+    div.addEventListener('click', () => {
+      apresentar(produto);
+      window.location.href = '/eixoauto/eixoautopi/pages/compra.php';
+    });
+
+    // Clique no coração = favoritar
+    div.querySelector('.fav_heart').addEventListener('click', (e) => {
+      e.stopPropagation(); // Evita redirecionamento
+      favoritar(produto);
+    });
+
     container.appendChild(div);
   });
 }
+
 
 // Evento de busca
 const inputBusca = document.getElementById('input-busca');

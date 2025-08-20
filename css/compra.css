@@ -168,7 +168,7 @@ h2 {
   min-height: 100vh;
   background-color: #D6E0EA;
   border-radius: 10px;
-  display: flex;
+  display: column;
   margin-bottom: 20px;
   padding: 20px;
 }
