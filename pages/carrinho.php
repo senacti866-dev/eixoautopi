@@ -16,16 +16,14 @@
     </div>
   </header>
 
-  <div id="select-menu-container"></div>
 
-  <div id="carrinho">
-    <!-- Itens serão carregados aqui via JS -->
-  </div>
+    <div class="finalize-shop">
+        <div class="prize">
+            <p>Valor Total: </p>
+            <h1 id="Preco-Final">0,00</h1>
+        </div>
+        <button class="buy">Finalizar Compra</button>
 
-  <div class="finalize-shop">
-    <div class="prize">
-      <p>Valor Total:</p>
-      <h1 id="Preco-Final">0,00</h1>
     </div>
     <button class="buy">Finalizar Compra</button>
   </div>
