@@ -36,7 +36,7 @@
     <div class="finalize-shop">
         <div class="prize">
             <p>Valor Total: </p>
-            <h1 id="Preco-Final">Preço Total</h1>
+            <h1 id="Preco-Final">0,00</h1>
         </div>
         <button class="buy">Finalizar Compra</button>
     </div>

@@ -17,7 +17,7 @@
   </header>
 
   <div id="produto-compra">
-    <div class="product-container" id="product-container"></div>
+    <div class="product-container" id="product-container" ></div>
   </div>
 
   <div class="comparison">

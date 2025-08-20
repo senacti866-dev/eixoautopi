@@ -48,10 +48,25 @@ function CarrinhodeProdutos() {
         SelectProducts();
         return;
       } else
+        if (event.target.closest('.btn')) {
+          event.stopPropagation()
+          return
+        } else {
+          apresentar(produto);
+          window.location.href = '/EixoAuto/pages/compra.php';
+        }
+    });
+
+    /*div.addEventListener('click', (event) => {
+      if (event.target.closest('.select-product')) {
+        event.stopPropagation()
+        SelectProducts();
+        return;
+      } else
         if (event.target.closest('.item-carrinho') && !event.target.closest('.quantity')) {
           apresentar(produto);
         }
-    });
+    });*/
 
     container.appendChild(div);
   });
@@ -177,31 +192,32 @@ function FinalizacaoCompra() {
   const checkboxes = document.querySelectorAll('.select-product:checked');
   let valorTotalCompra = 0;
 
+  //PROBLEMA ESTÁ AQUI
   checkboxes.forEach(cb => {
-    const id = parseInt(cb.dataset.id);
-    const produto = carrinho.find(p => p.id === id);
-    if (produto) {
-      const container = cb.closest('.item-carrinho');
-      const qtd = container.querySelector('.qtd');
-      const quantidade = parseInt(qtd.textContent);
+    const container = cb.closest('.item-carrinho')
+    if (!container) return
 
-      const precoUnitario = parseFloat(produto.preco.replace(',', '.'));
-      valorTotalCompra += quantidade * precoUnitario;
-    }
+    const nome = container.querySelector('h2').textContent.trim()
+    const produto = carrinho.find(p => p.nome === nome)
+    if (!produto) return
+
+    const qtd = parseInt(container.querySelector('.qtd').textContent.trim(), 10) || 1;
+
+    const precoUnitario = parseFloat(produto.preco.replace(',', '.'));
+    valorTotalCompra += qtd * precoUnitario;
   });
   const PrecoFinal = document.getElementById('Preco-Final');
-  PrecoFinal.textContent = valorTotalCompra.toFixed(2).replace('.', ',');
+  PrecoFinal.textContent = valorTotalCompra.toFixed(2).replace('.', ',')
 
   localStorage.setItem('totalCompra', valorTotalCompra.toFixed(2));
   return valorTotalCompra;
-
 }
 
 document.addEventListener('click', (event) => {
   if (event.target.classList.contains('buy')) {
     let total = FinalizacaoCompra()
     if (total > 0) {
-      window.location.href = '/eixoauto/eixoautopi/pages/finalizacaoC.html'
+      window.location.href = '/eixoauto/eixoautopi/pages/finalizacaoC.php'
     } else {
       alert('Nenhum produto foi selecionado. Selecione no mínimo um produto para finalizar a compra.')
     }
